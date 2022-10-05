@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import socketIOClient from "socket.io-client";
 import randomstring from "randomstring";
-
+import Link from "next/link";
 const socket = socketIOClient("https://pokemon-socketio.herokuapp.com", {
   autoConnect: false,
 });
@@ -206,7 +206,7 @@ const VictoryStage = ({ battle }) => {
           </h1>
         </div>
       )}
-      <a href="/">Play Again</a>
+      <Link href="/">Play Again</Link>
     </div>
   );
 };

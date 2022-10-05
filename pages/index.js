@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 export default function Home() {
   const [battleId, setBattleId] = useState("");
 
@@ -7,9 +8,9 @@ export default function Home() {
       <h1 className="text-5xl font-bold text-center p-16">PokeBattle!</h1>
       <div className="flex text-center space-x-16">
         <div className="w-1/2">
-          <a href="/battle" className="w-full p-6 bg-blue-200 m-2">
+          <Link href="/battle" className="w-full p-6 bg-blue-200 m-2">
             New Game
-          </a>
+          </Link>
         </div>
 
         <div className="w-1/2">
@@ -18,12 +19,12 @@ export default function Home() {
             type="text"
             onChange={(e) => setBattleId(e.target.value)}
           ></input>
-          <a
+          <Link
             href={"/battle?battleId=" + battleId}
             className="w-full p-6 bg-blue-200 m-2"
           >
             Join Game
-          </a>
+          </Link>
         </div>
       </div>
     </div>
