@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import socketIOClient from "socket.io-client";
 import randomstring from "randomstring";
 
-const socket = socketIOClient("http://localhost:4000", { autoConnect: false });
+const socket = socketIOClient("https://pokemon-socketio.herokuapp.com", {
+  autoConnect: false,
+});
 
 export default function Battle({ pokemon, battleId }) {
   const [battle, setBattle] = useState({
