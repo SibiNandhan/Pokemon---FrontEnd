@@ -212,15 +212,19 @@ const VictoryStage = ({ battle }) => {
 };
 
 export async function getServerSideProps({ query }) {
-  const response = await fetch(
-    "https://pokemon-socketio.herokuapp.com/pokemon"
-  );
-  const data = await response.json();
-  const pokemon = JSON.parse(JSON.stringify(data.result));
-  return {
-    props: {
-      pokemon,
-      battleId: query.battleId || null,
-    },
-  };
+  try {
+    const response = await fetch(
+      "https://pokemon-socketio.herokuapp.com/pokemon"
+    );
+    const data = await response.json();
+    const pokemon = JSON.parse(JSON.stringify(data.result));
+    return {
+      props: {
+        pokemon,
+        battleId: query.battleId || null,
+      },
+    };
+  } catch (err) {
+    console.log(err);
+  }
 }
