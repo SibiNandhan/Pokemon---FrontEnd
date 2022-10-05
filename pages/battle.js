@@ -212,7 +212,9 @@ const VictoryStage = ({ battle }) => {
 };
 
 export async function getServerSideProps({ query }) {
-  const response = await fetch("http://localhost:4000/pokemon");
+  const response = await fetch(
+    "https://pokemon-socketio.herokuapp.com/pokemon"
+  );
   const data = await response.json();
   const pokemon = JSON.parse(JSON.stringify(data.result));
   return {
